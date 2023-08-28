@@ -58,3 +58,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_28_193636) do
   add_foreign_key "purchases", "products"
   add_foreign_key "purchases", "users"
 end
+
