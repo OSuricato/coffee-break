@@ -1,8 +1,10 @@
 class User < ApplicationRecord
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :email, presence: true, lenght: {maximum: 260}, format: { with: VALID_EMAIL_FORMAT}, uniqueness: {case_sensitive: false}
-  validates :company, presence: true
-  validates :company_name, presence: true
-  validates :register_name, presence: true
+    # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+  validates :first_name, :last_name,:is_company, :company_name, :register_name, presence: true
+  validates :email, presence: true, format:  { with: /\A.*@.*\.com\z/ }, uniqueness: {case_sensitive: false}
+
 end
