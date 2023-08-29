@@ -7,9 +7,10 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :purchases, only: [:index, :create]
+    resources :products, only: [:new, :create, :index]
   end
 
-  resources :products do
+  resources :products, only: [:update, :destroy, :edit, :show] do
     resources :purchases, only: [:index, :new, :create]
   end
   root to: "pages#home"

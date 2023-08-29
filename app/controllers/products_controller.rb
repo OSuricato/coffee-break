@@ -1,8 +1,7 @@
 class ProductsController < ApplicationController
+  before_action :set_user, only: %i[new create]
   # index
   # show
-
-
   # new
   def new
     @product = Product.new
@@ -11,7 +10,7 @@ class ProductsController < ApplicationController
   # create
   def create
     @product = Product.new(product_params)
-
+    @product.user = @user
     if @product.save!
       redirect_to @product, notice: "Product created succesfully"
     else
@@ -22,6 +21,10 @@ class ProductsController < ApplicationController
   # destroy
 
   private
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
 
   def set_product
     @product = Product.find(params[:id])
