@@ -1,0 +1,19 @@
+
+<div class="card-product" >
+  <%= image_tag "placeholder.jpg", class: "coffee_image" %>
+  <div class="product-details">
+    <p><strong>Name:</strong> <%= @coffee.name %> </p>
+    <p><strong>Details:</strong> <%= @coffee.description %> </p>
+    <p><strong>Roast Type:</strong> <%= @coffee.roast_type %> </p>
+    <p><strong>Net weight:</strong> <%= @coffee.weight %> </p>
+    <p><strong>Price: $ </strong> <%= @coffee.price %> </p>
+    <%= link_to "#" do%>
+      <%# <i></i> procurar icone de "checkout" no font awesome  %>
+    <% end %>
+  </div>
+</div>
+
+
+<p><%= link_to 'back to Coffee', products_path %></p>
+
+<%= link_to 'delete', products_path(@coffee), data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }%>
