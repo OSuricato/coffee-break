@@ -1,0 +1,29 @@
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+<div class="form-inputs">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :region %>
+  <%= f.text_field :region %>
+
+  <%= f.label :roast_type %>
+  <%= f.select :roast_type, options_for_select(['grain', 'coarse', 'thin']) %>
+
+  <%= f.label :weight %>
+  <%= f.number_field :weight %>
+
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+</div>
+
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>
