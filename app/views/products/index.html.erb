@@ -1,0 +1,21 @@
+<div class="container-macro">
+  <% @coffees.each do |coffee| %>
+    <div class="card-product" >
+      <%= image_tag "placeholder.jpg", class: "coffee_image" %>
+      <div class="product-description">
+        <p><%= coffee.description %></p>
+      </div>
+      <div class="product-info">
+        <h2><%= coffee.name %></h2>
+        <p><%= coffee.roast_type %></p>
+        <p><%= coffee.price %></p>
+        <div class="product-weight">
+          <p><%= coffee.weight %></p>
+          <%= link_to "#" do%>
+            <%# <i></i> procurar icone de "+" no font awesome  %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
