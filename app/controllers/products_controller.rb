@@ -1,8 +1,14 @@
 class ProductsController < ApplicationController
-  before_action :set_user, only: %i[new create]
-  # index
-  # show
-  # new
+
+
+  def index
+    @coffees = Product.all
+  end
+
+  def show
+    @coffee = Product.find(params[:id])
+  end
+
   def new
     @product = Product.new
   end
@@ -10,8 +16,8 @@ class ProductsController < ApplicationController
   # create
   def create
     @product = Product.new(product_params)
-    @product.user = @user
-    if @product.save!
+    @product.user = current_user
+    if @product.save
       redirect_to @product, notice: "Product created succesfully"
     else
       render :new, status: :unprocessable_entity
@@ -21,10 +27,6 @@ class ProductsController < ApplicationController
   # destroy
 
   private
-
-  def set_user
-    @user = User.find(params[:user_id])
-  end
 
   def set_product
     @product = Product.find(params[:id])
