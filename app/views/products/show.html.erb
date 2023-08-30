@@ -1,12 +1,13 @@
+<%if @product.product_type == "Coffee" %>
 
 <div class="card-product" >
   <%= image_tag "placeholder.jpg", class: "coffee_image" %>
   <div class="product-details">
-    <p><strong>Name:</strong> <%= @coffee.name %> </p>
-    <p><strong>Details:</strong> <%= @coffee.description %> </p>
-    <p><strong>Roast Type:</strong> <%= @coffee.roast_type %> </p>
-    <p><strong>Net weight:</strong> <%= @coffee.weight %> </p>
-    <p><strong>Price: $ </strong> <%= @coffee.price %> <%= link_to 'delete', products_path(@coffee), data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }%> </p>
+    <p><strong>Name:</strong> <%= @product.name %> </p>
+    <p><strong>Details:</strong> <%= @product.description %> </p>
+    <p><strong>Roast Type:</strong> <%= @product.roast_type %> </p>
+    <p><strong>Net weight:</strong> <%= @product.weight %> </p>
+    <p><strong>Price: $ </strong> <%= @product.price %> <%= link_to 'delete', products_path(@product), data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }%> </p>
     <%= link_to "#" do%>
       <%# <i></i> procurar icone de "checkout" no font awesome  %>
     <% end %>
@@ -14,3 +15,23 @@
 </div>
 
 <p class="btn btn-primary"><%= link_to 'back to Coffee', products_path %></p>
+
+
+<% else %>
+
+<div class="card-product" >
+  <%= image_tag "accessory.jpg", class: "accesory_image" %>
+  <div class="product-details">
+    <p><strong>Name:</strong> <%= @product.name %> </p>
+    <p><strong>Product Type:</strong> <%= @product.product_type %> </p>
+    <p><strong>Details:</strong> <%= @product.description %> </p>
+    <p><strong>Price: $ </strong> <%= @product.price %> <%= link_to 'delete', index_accessories_products_path(@product), data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }%> </p>
+    <%= link_to "#" do%>
+      <%# <i></i> procurar icone de "checkout" no font awesome  %>
+    <% end %>
+  </div>
+</div>
+
+<p class="btn btn-primary"><%= link_to 'back to Accessories', index_accessories_products_path %></p>
+
+<% end %>

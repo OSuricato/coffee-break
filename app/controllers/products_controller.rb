@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-
   def index
     @coffees = Product.where(product_type: "Coffee")
   end
@@ -9,7 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @coffee = Product.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def new
