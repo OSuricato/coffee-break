@@ -47,6 +47,7 @@ user = User.create(
       region: Faker::Coffee.origin,
       weight: [250, 500, 1000].sample,
       roast_type: ["grain", "coarse", "thin"].sample,
+      product_type: "Coffee",
       price: rand(10..150)
     )
     product.user = user
