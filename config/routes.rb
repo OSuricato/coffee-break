@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :purchases, only: [:index, :new, :create]
     collection do
       get 'search'
+      get "index_accessories"
     end
   end
   root to: "pages#home"
