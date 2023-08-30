@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @coffees = Product.where(product_type: "Coffee")
+    @pagy, @coffees = pagy @coffees, items: params.fetch(:count, 5)
   end
 
   def index_accessories
