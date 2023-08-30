@@ -3,7 +3,29 @@ User.destroy_all
 
 puts 'starting seed'
 
-10.times do
+user = User.create(
+  email: 'business@gmail.com',
+  password: '123123',
+  first_name: Faker::Name.name,
+  last_name: Faker::Name.last_name,
+  phone_number: Faker::PhoneNumber.cell_phone,
+  is_company: true,
+  company_name: Faker::Company.name,
+  register_number: Faker::CNPJ.numeric
+)
+
+user = User.create(
+  email: 'client@gmail.com',
+  password: '123123',
+  first_name: Faker::Name.name,
+  last_name: Faker::Name.last_name,
+  phone_number: Faker::PhoneNumber.cell_phone,
+  is_company: false,
+  company_name: Faker::Company.name,
+  register_number: Faker::CNPJ.numeric
+)
+
+5.times do
   user = User.create!(
     email: Faker::Internet.email,
     password: '123123',
@@ -32,7 +54,7 @@ puts 'starting seed'
   end
 end
 
-40.times do
+20.times do
   User.create!(
     email: Faker::Internet.email,
     password: '123123',
