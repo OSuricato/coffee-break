@@ -37,7 +37,7 @@ user = User.create(
     register_number: Faker::CNPJ.numeric
   )
   puts "usuario criado"
-  5.times do
+  10.times do
     product = Product.new(
       # name
       name: Faker::Coffee.blend_name,
@@ -47,7 +47,7 @@ user = User.create(
       region: Faker::Coffee.origin,
       weight: [250, 500, 1000].sample,
       roast_type: ["grain", "coarse", "thin"].sample,
-      product_type: "Coffee",
+      product_type: ["Coffee", "filter", "grinder", "cup"].sample
       price: rand(10..150)
     )
     product.user = user
