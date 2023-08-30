@@ -1,0 +1,40 @@
+<div class="promo-section">
+  <div class="text-center">
+    <h2>Promo</h2>
+  </div>
+
+  <div id="promo-carousel" class="carousel slide" data-ride="carousel">
+    <!-- Carousel indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#promo-carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#promo-carousel" data-slide-to="1"></li>
+      <!-- Add more indicators as needed -->
+    </ol>
+
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag asset_path('accessory.jpg'), class: 'd-block w-100', alt: 'Image 1' %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag asset_path('home_banner.jpg'), class: 'd-block w-100', alt: 'Image 2' %>
+      </div>
+      <!-- Add more carousel items as needed -->
+    </div>
+
+    <!-- Carousel controls -->
+    <a class="carousel-control-prev" href="#promo-carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#promo-carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <div class="promo-content">
+    <p>caramelization half and half black carajillo viennese instant cultivar froth. Qui plunger pot frappuccino bar.</p>
+    <%= link_to "Learn More", "#", class: "btn btn-primary" %>
+  </div>
+</div>
