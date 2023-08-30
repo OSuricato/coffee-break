@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
 
   def index
-    @coffees = Product.all
+    @coffees = Product.where(product_type: "Coffee")
+  end
+
+  def index_accessories
+    @accessories = Product.where.not(product_type: "Coffee")
   end
 
   def show
