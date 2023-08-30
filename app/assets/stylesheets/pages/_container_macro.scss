@@ -1,6 +1,11 @@
 .container-macro {
-  margin: 100px;
-  border-color: rgb(0,0,0);
-  border-width: 15px;
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 100px;
+  border-color: rgb(0, 0, 0); /* Border color */
+  border-width: 3px;
+  border-style: solid; /* Add this to specify the border style */
   padding: 50px;
+  background-color: #ebebeb;
 }
