@@ -10,11 +10,11 @@
       <p><strong>Price: $ </strong> <%= @product.price %> <%= link_to 'delete', products_path(@product), data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }%> </p>
       <%# <%= link_to "#" do%>
         <%# <i></i> procurar icone de "checkout" no font awesome  %>
-      <%# <% end %> 
+      <%# <% end %>
     </div>
   </div>
 
-  <p class="btn btn-primary"><%= link_to 'back to Coffee', products_path %></p>
+  <p class="btn btn-primary"><%= link_to 'back to Coffee', root_path %></p>
 
 
 <% else %>
