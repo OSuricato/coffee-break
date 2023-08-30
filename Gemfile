@@ -79,4 +79,7 @@ group :test do
 end
 
 gem 'faker'
+
 gem 'cpf_faker'
+
+gem 'will_paginate'

@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
 
-
   def index
     @coffees = Product.all
   end
@@ -38,6 +37,10 @@ class ProductsController < ApplicationController
   def update
     @product.update(product_params)
     redirect_to product_path(@product)
+  end
+
+  def search
+    @search_results = Product.where("name ILIKE ?", "%#{params[:search][:query]}%")
   end
 
   private
