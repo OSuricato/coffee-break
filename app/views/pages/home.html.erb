@@ -15,6 +15,7 @@
         <div class="product-weight">
           <p><%= product.weight %> grams</p>
           <%= link_to "View Details", product_path(product), class: "btn btn-primary" %>
+          <%= link_to "Edit Product", edit_product_path(product), class: "btn btn-primary" %>
           <%= link_to "Delete", product_path(product), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
         </div>
       </div>
