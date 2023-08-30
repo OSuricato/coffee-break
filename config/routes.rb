@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   resources :products do
     resources :purchases, only: [:index, :new, :create]
+    collection do
+      get 'search'
+    end
   end
   root to: "pages#home"
 end
