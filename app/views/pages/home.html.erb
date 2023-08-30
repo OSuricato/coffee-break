@@ -1,11 +1,21 @@
-<%= render "pages/banner" %>
-<br>
-<p>Steamed redeye galão caffeine affogato macchiato brewed galão caramelization carajillo robusta. Froth, caramelization milk macchiato chicory french press robust. Affogato est aromatic, doppio a, id con panna sit cortado frappuccino to go. Acerbic, percolator, breve, aroma, medium aroma lungo coffee milk fair trade.</p>
-<p>A, caramelization half and half black carajillo viennese instant cultivar froth. Qui plunger pot frappuccino bar  aromatic half and half americano brewed chicory. Americano iced, rich, sit cinnamon aromatic, kopi-luwak qui cappuccino cream roast. Coffee, that, milk extra  that sweet plunger pot coffee dark.</p>
+<% if user_signed_in? && current_user.is_company? %>
+<%= render "pages/banner_business" %>
 
-<br>
-<%= render "pages/coffee" %>
-<br>
-<%= render "pages/accessories" %>
-<br>
-<%= render "pages/promo" %>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('background.jpg') %>)">
+  My Coffees
+</div>
+
+
+<% else %>
+  <%= render "pages/banner" %>
+  <br>
+  <p>Steamed redeye galão caffeine affogato macchiato brewed galão caramelization carajillo robusta. Froth, caramelization milk macchiato chicory french press robust. Affogato est aromatic, doppio a, id con panna sit cortado frappuccino to go. Acerbic, percolator, breve, aroma, medium aroma lungo coffee milk fair trade.</p>
+  <p>A, caramelization half and half black carajillo viennese instant cultivar froth. Qui plunger pot frappuccino bar  aromatic half and half americano brewed chicory. Americano iced, rich, sit cinnamon aromatic, kopi-luwak qui cappuccino cream roast. Coffee, that, milk extra  that sweet plunger pot coffee dark.</p>
+
+  <br>
+  <%= render "pages/coffee" %>
+  <br>
+  <%= render "pages/accessories" %>
+  <br>
+  <%= render "pages/promo" %>
+<% end %>
