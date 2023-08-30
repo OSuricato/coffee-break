@@ -6,11 +6,10 @@
     <p><strong>Details:</strong> <%= @coffee.description %> </p>
     <p><strong>Roast Type:</strong> <%= @coffee.roast_type %> </p>
     <p><strong>Net weight:</strong> <%= @coffee.weight %> </p>
-    <p><strong>Price: $ </strong> <%= @coffee.price %> <%= link_to 'delete', products_path(@coffee), data: { turbo_method: :delete, turbo_confirm: 'are you sure?' }%> </p>
     <%= link_to "#" do%>
       <%# <i></i> procurar icone de "checkout" no font awesome  %>
     <% end %>
   </div>
 </div>
 
-<p class="btn btn-primary"><%= link_to 'back to Coffee', products_path %></p>
+<p class="btn btn-primary"><%= link_to 'back to my products', root_path %></p>

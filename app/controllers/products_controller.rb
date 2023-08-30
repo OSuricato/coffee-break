@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to products_path, notice: 'Bookmark was successfully removed.', status: :see_other
+    redirect_to root_path, notice: 'Bookmark was successfully removed.', status: :see_other
   end
   # update/edit
   # destroy

@@ -1,9 +1,30 @@
 <% if user_signed_in? && current_user.is_company? %>
 <%= render "pages/banner_business" %>
+<br>
+<h1>My products:</h1>
 
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('background.jpg') %>)">
-  My Coffees
+<div class="cards">
+
+  <% @products.each do |product| %>
+    <div class="card-product">
+      <%= image_tag "placeholder.jpg", class: "product_image" %>
+      <div class="product-info">
+        <h2><%= product.name %></h2>
+        <p> US$ <%= product.price %>.00</p>
+        <p>Grain type: <%= product.roast_type %></p>
+        <div class="product-weight">
+          <p><%= product.weight %> grams</p>
+          <%= link_to "View Details", product_path(product), class: "btn btn-primary" %>
+          <%= link_to "Delete", product_path(product), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
+
+<h1>Add new product:</h1>
+<%= link_to "Add new product", new_product_path, class: "btn btn-primary" %>
+
 
 
 <% else %>
