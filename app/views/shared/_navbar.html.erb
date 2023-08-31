@@ -1,66 +1,68 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo_colored.png" %>
-      <span class="ml-2">Coffee Break</span>
-    <% end %>
+<div class="container fixed-top mt-3">
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo_colored.png" %>
+        <span class="ml-2">Coffee Break</span>
+      <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+          <% if user_signed_in? %>
+            <span class="nav-item active">
+              <form novalidate="novalidate" class="simple_form search " action="<%= search_products_path %>" accept-charset="UTF-8" method="get">
+                <div class="search-form-control form-group d-flex">
+                  <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Search" />
+                  <button name="button" type="submit" class="btn btn-flat ">
+                    <i class="fas fa-search nav-link"></i>
+                  </button>
+                </div>
+              </form>
+            </span>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-
-        <% if user_signed_in? %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <form novalidate="novalidate" class="simple_form search" action="<%= search_products_path %>" accept-charset="UTF-8" method="get">
-              <div class="search-form-control form-group d-flex">
-                <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Search" />
-                <button name="button" type="submit" class="btn btn-flat">
-                  <i class="fas fa-search nav-link"></i>
-                </button>
+            <%= link_to "Home", root_path, class: "nav-link" %>
+          </li>
+            <%# end of search bar %>
+            <% if current_user.is_company? %>
+              <li class="nav-item">
+                <%= link_to "My Products", root_path, class: "nav-link" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to "Coffees", products_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "Accessories", index_accessories_products_path, class: "nav-link" %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "Promos", index_promo_products_path, class: "nav-link" %>
+              </li>
+            <% end %>
+            <li class="nav-item dropdown">
+              <% if current_user.photo.key? %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "meerkat.webp", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Action", "#", class: "dropdown-item" %>
+                <%= link_to "Manage your account", edit_user_registration_path, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               </div>
             </form>
           </li>
           <%# end of search bar %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-
-          <% if current_user.is_company? %>
-            <li class="nav-item">
-              <%= link_to "My Products", root_path, class: "nav-link" %>
-            </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to "Coffees", products_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to "Accessories", index_accessories_products_path, class: "nav-link" %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to "Promos", index_promo_products_path, class: "nav-link" %>
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
             </li>
           <% end %>
-          <li class="nav-item dropdown">
-            <% if current_user.photo.key? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "meerkat.webp", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Manage your account", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
