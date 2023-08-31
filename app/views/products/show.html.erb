@@ -1,5 +1,10 @@
-<%if @product.product_type == "Coffee" %>
+<h1><%= @product.name %></h1>
+<p><%= @product.description %></p>
+<%= link_to 'Purchase', new_product_purchase_path(@product), class: 'btn btn-primary' %>
 
+
+<%if @product.product_type == "Coffee" %>
+ 
   <div class="card-product" >
     <%= image_tag "placeholder.jpg", class: "coffee_image" %>
     <div class="product-details">
@@ -14,8 +19,12 @@
     </div>
   </div>
 
-  <p class="btn btn-primary"><%= link_to 'back to Coffee', root_path %></p>
+  <% if current_user.is_company?  %>
+    <p class="btn btn-primary"><%= link_to 'back to my products', root_path %></p>
 
+  <% else %>
+    <p class="btn btn-primary"><%= link_to 'back to Coffee', products_path %></p>
+  <% end %>
 
 <% else %>
 
@@ -30,6 +39,7 @@
         <%# <i></i> procurar icone de "checkout" no font awesome  %>
     </div>
   </div>
+
 
   <% if current_user.is_company?  %>
     <p class="btn btn-primary"><%= link_to 'back to my products', root_path %></p>

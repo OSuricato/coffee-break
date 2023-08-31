@@ -1,0 +1,7 @@
+<div class="container">
+<h1>Confirm your purchase</h1>
+<p>Name: <%= current_user.first_name %></p>
+<p>Last name: <%= current_user.last_name %></p>
+<%= link_to "cancel purchase", product_path(@product) %>
+<%= render "form", product: @product, purchase: @purchase %>
+</div>
