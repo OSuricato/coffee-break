@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   # before_action: set_product, only:
+  skip_before_action :authenticate_user!, only: [ :index, :index_accessories, :index_promo, :show ]
 
   def index
     @coffees = Product.where(product_type: "Coffee")
