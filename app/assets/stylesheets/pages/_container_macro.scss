@@ -3,10 +3,15 @@
   margin-left: 100px;
   margin-right: 100px;
   margin-bottom: 100px;
-  border-color: rgb(80, 80, 80); /* Border color */
-  border-width: 1px;
-  box-shadow: 0px 0px 10px 1px #888888;
-  border-style: solid; /* Add this to specify the border style */
+  // border-color: rgb(80, 80, 80); /* Border color */
+  // border-width: 1px;
+  // box-shadow: 0px 0px 10px 1px #888888;
+  // border-style: solid; /* Add this to specify the border style */
+  border-radius: 12px;
   padding: 50px;
   background-color: #ebebeb;
+
+  img {
+    border-radius: 16px;
+  }
 }

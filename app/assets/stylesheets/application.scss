@@ -18,3 +18,10 @@
 @import "pages/card_product";
 @import "pages/banner";
 @import "pages/promo";
+
+body {
+  background-color: #49643F;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
