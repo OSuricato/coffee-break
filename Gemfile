@@ -83,3 +83,5 @@ gem 'faker'
 gem 'cpf_faker'
 
 gem 'pagy'
+
+gem "cloudinary"
