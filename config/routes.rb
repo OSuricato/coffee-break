@@ -17,5 +17,6 @@ Rails.application.routes.draw do
       get "index_accessories"
     end
   end
+  resources :purchases, only: [:show]
   root to: "pages#home"
 end

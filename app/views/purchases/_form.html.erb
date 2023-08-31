@@ -1,0 +1,7 @@
+<%= simple_form_for([ product, purchase ]) do |f| %>
+
+  <%= f.input :address %>
+  <div class="d-grid">
+    <%= f.submit "Confirm your purchase", class: 'btn btn-primary' %>
+  </div>
+<% end %>
