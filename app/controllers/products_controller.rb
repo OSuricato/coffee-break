@@ -10,6 +10,10 @@ class ProductsController < ApplicationController
     @accessories = Product.where.not(product_type: "Coffee")
   end
 
+  def index_promo
+    @promos = Product.where(is_promo: true)
+  end
+
   def show
     @product = Product.find(params[:id])
   end
@@ -55,6 +59,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-  params.require(:product).permit(:name, :region, :roast_type, :description, :weight, :price, :product_type, :photo)
+    params.require(:product).permit(:name, :region, :roast_type, :description, :weight, :price, :product_type, :is_promo, :photo)
   end
 end

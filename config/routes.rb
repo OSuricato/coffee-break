@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get "index_accessories"
+      get "index_promo"
     end
   end
+  resources :purchases, only: [:show]
   root to: "pages#home"
 end

@@ -1,0 +1,20 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('background.jpg') %>)">
+  Products in promo
+</div>
+
+<div class="cards">
+
+  <% @promos.each do |promo| %>
+    <div class="card-product">
+      <%= image_tag "accessory.jpg", class: "accessory_image" %>
+      <div class="accessory-info">
+        <h2><%= promo.name %></h2>
+        <p> US$ <%= promo.price %>.00</p>
+        <p>Product type: <%= promo.product_type %></p>
+        <div class="details">
+          <%= link_to "View Details", product_path(promo), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
