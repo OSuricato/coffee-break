@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
   def index
     @coffees = Product.where(product_type: "Coffee")
-    @pagy, @coffees = pagy @coffees, items: params.fetch(:count, 10)
+    @pagy, @coffees = pagy @coffees, items: params.fetch(:count, 12)
   end
 
   def index_accessories
