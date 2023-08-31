@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
+  # before_action: set_product, only:
+
   def index
     @coffees = Product.where(product_type: "Coffee")
-    @pagy, @coffees = pagy @coffees, items: params.fetch(:count, 5)
+    @pagy, @coffees = pagy @coffees, items: params.fetch(:count, 10)
   end
 
   def index_accessories
@@ -16,7 +18,6 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
-  # create
   def create
     @product = Product.new(product_params)
     @product.user = current_user
@@ -32,13 +33,13 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to root_path, notice: 'Bookmark was successfully removed.', status: :see_other
   end
-  # update/edit
-  # destroy
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
     @product.update(product_params)
     redirect_to product_path(@product)
   end
@@ -54,6 +55,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :region, :roast_type, :description, :weight, :price, :product_type)
+  params.require(:product).permit(:name, :region, :roast_type, :description, :weight, :price, :product_type, :photo)
   end
 end

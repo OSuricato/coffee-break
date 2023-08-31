@@ -20,7 +20,7 @@
 
     <%= f.input :register_number,
                 required: true,
-                input_html: { autocomplete: "Your CPF/CNOJ" } %>
+                input_html: { autocomplete: "Your CPF/CNPJ" } %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -32,6 +32,9 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo, as: :file,
+                required: false,
+                input_html: { autocomplete: "Your-Profile Pic" } %>
 
   </div>
 
