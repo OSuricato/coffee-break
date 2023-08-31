@@ -1,9 +1,9 @@
 <div class="container fixed-top mt-3">
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag "logo_colored.png" %>
-        <span class="ml-2">Coffee Break</span>
+      <%= link_to root_path, class: "navbar-brand px-3" do %>
+        <i class="fa-solid fa-mug-hot fa-lg"></i>
+        <span class="ml-2 px-2">Coffee Break</span>
       <% end %>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
               </form>
             </span>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse mx-3" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
@@ -46,7 +46,7 @@
               <% if current_user.photo.key? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% else %>
-                <%= image_tag "meerkat.webp", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <%= image_tag "meerkat.webp", class: "avatar dropdown-toggle py-1", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Action", "#", class: "dropdown-item" %>
