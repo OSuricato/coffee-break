@@ -18,5 +18,6 @@ Rails.application.routes.draw do
       get "index_promo"
     end
   end
+  resources :purchases, only: [:show]
   root to: "pages#home"
 end

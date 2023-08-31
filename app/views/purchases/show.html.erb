@@ -1,0 +1,13 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('background.jpg') %>)">
+  Confirmation
+</div>
+
+  <div class="card-product" >
+    <%= image_tag "placeholder.jpg", class: "coffee_image" %>
+    <div class="product-details">
+      <h2>Congratulations</h2>
+      <p>Your <%= @purchase_item.product.name %> was successfully purchased!</p>
+    </div>
+  </div>
+
+  <p class="btn btn-primary"><%= link_to 'back to Home', root_path %></p>
