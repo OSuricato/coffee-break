@@ -7,7 +7,11 @@
 
   <% @products.each do |product| %>
     <div class="card-product">
+      <% if product.photo.key? %>
+      <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
       <%= image_tag "placeholder.jpg", class: "product_image" %>
+      <% end %>
       <div class="product-info">
         <h2><%= product.name %></h2>
         <p> US$ <%= product.price %>.00</p>
@@ -15,6 +19,7 @@
         <div class="product-weight">
           <p><%= product.weight %> grams</p>
           <%= link_to "View Details", product_path(product), class: "btn btn-primary" %>
+          <%= link_to "Edit Product", edit_product_path(product), class: "btn btn-primary" %>
           <%= link_to "Delete", product_path(product), data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
         </div>
       </div>

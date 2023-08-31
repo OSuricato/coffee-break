@@ -1,0 +1,11 @@
+<div class="container mt-5">
+  <h1>Edit product</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <%= render 'form', user: current_user, product: @product %>
+
+      <%= link_to 'Back to yours products', root_path, class: "btn btn-secondary mt-3" %>
+    </div>
+  </div>
+</div>
