@@ -54,6 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_31_180204) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "product_type"
+    t.boolean "is_promo"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 

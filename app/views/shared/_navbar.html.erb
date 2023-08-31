@@ -24,6 +24,18 @@
             </form>
           </li>
           <%# end of search bar %>
+          <li class="nav-item active">
+            <%= link_to "Home", root_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Coffees", products_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "Accessories", index_accessories_products_path, class: "nav-link" %>
+          </li>
+            <li class="nav-item active">
+            <%= link_to "Promos", index_promo_products_path, class: "nav-link" %>
+          </li>
           <% if current_user.is_company? %>
             <li class="nav-item">
               <%= link_to "My Products", root_path, class: "nav-link" %>
