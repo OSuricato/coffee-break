@@ -21,6 +21,16 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :email,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email" }%>
+    <%= f.input :register_number,
+                required: false,
+                input_html: { autocomplete: "Your CPF/CNPJ" } %>
+    <%= f.input :photo, as: :file,
+                required: false,
+                input_html: { autocomplete: "Your-Profile Pic" } %>
   </div>
 
   <div class="form-actions">
