@@ -1,13 +1,30 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #49643F;
-  color: #ebebeb
+  background: #291f14;
+  color: #ebebeb;
+  border-radius: 50px;
+  a {
+    color: #ebebeb;
+  }
+  .dropdown-item {
+    color: #291f14
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-lewagon .navbar-brand {
+  img{
+    width: 40px;
+  }
+  span {
+    color: #ebebeb;
+  }
+
+}
+
+#search_query {
+  border-radius: 8px;
 }
