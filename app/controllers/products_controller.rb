@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @coffees = Product.where(product_type: "Coffee")
-    @pagy, @coffees = pagy @coffees, items: params.fetch(:count, 5)
+    @pagy, @coffees = pagy @coffees, items: params.fetch(:count, 10)
   end
 
   def index_accessories
@@ -54,6 +54,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :region, :roast_type, :description, :weight, :price, :product_type)
+    params.require(:product).permit(:name, :region, :roast_type, :description, :weight, :price, :product_type, :photo)
   end
 end
