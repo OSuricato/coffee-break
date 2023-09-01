@@ -6,10 +6,10 @@
 
   <% @coffees.each do |coffee| %>
     <div class="card-product">
-    <% if coffee.photo.key? %>
-      <%= cl_image_tag coffee.photo.key, height: 300, width: 400, crop: :fill %>
+      <% if coffee.photo.key? %>
+        <%= cl_image_tag coffee.photo.key, height: 300, width: 400, crop: :fill %>
       <% else %>
-      <%= image_tag "placeholder.jpg", class: "product_image" %>
+        <%= image_tag "placeholder.jpg", class: "product_image" %>
       <% end %>
       <div class="product-info">
         <h2><%= coffee.name %></h2>
