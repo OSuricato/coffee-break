@@ -30,7 +30,11 @@
 <% else %>
 
   <div class="card-product" >
-    <%= image_tag "accessory.jpg", class: "accesory_image" %>
+    <% if @product.photo.key? %>
+      <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <%= image_tag "placeholder.jpg", class: "product_image" %>
+    <% end %>
     <div class="product-details">
       <p><strong>Name:</strong> <%= @product.name %> </p>
       <p><strong>Product Type:</strong> <%= @product.product_type %> </p>
@@ -46,7 +50,10 @@
      <% if current_user && current_user.is_company?  %>
       <p class="btn btn-primary"><%= link_to 'back to my products', root_path %></p>
     <% elsif @product.is_promo%>
+    <div class="d-flex">
       <p class="btn btn-primary"><%= link_to 'back to Promos', index_promo_products_path %></p>
+      <p class="btn btn-primary"><%= link_to 'back to Accessories', index_accessories_products_path %></p>
+    </div>
     <% else %>
       <p class="btn btn-primary"><%= link_to 'back to Accessories', index_accessories_products_path %></p>
     <% end %>
