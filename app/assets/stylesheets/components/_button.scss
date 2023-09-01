@@ -1,7 +1,18 @@
 .btn-primary {
-  border-radius: 8px;
+  width: 120px;
+  border-radius: 50px;
 }
 
 .btn-flat {
   color: white;
+}
+
+.btn-home {
+  width: 120px;
+  margin: 20px auto;
+}
+
+.btn-content {
+  display: flex;
+  justify-content: center;
 }
