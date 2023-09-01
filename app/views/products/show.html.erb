@@ -6,16 +6,17 @@
 <%if @product.product_type == "Coffee" %>
 
   <div class="card-product" >
-    <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+    <% if @product.photo.key? %>
+      <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <%= image_tag "placeholder.jpg", class: "product_image" %>
+    <% end %>
     <div class="product-details">
       <p><strong>Name:</strong> <%= @product.name %> </p>
       <p><strong>Details:</strong> <%= @product.description %> </p>
       <p><strong>Roast Type:</strong> <%= @product.roast_type %> </p>
       <p><strong>Net weight:</strong> <%= @product.weight %> </p>
       <p><strong>Price: $ </strong> <%= @product.price %>
-      <%# <%= link_to "#" do%>
-        <%# <i></i> procurar icone de "checkout" no font awesome  %>
-      <%# <% end %>
     </div>
   </div>
   <%  unless current_user.nil? %>
