@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
   # before_action: set_product, only:
+  skip_before_action :authenticate_user!, only: [ :index, :index_accessories, :index_promo, :show ]
 
   def index
     @coffees = Product.where(product_type: "Coffee")
-    @pagy, @coffees = pagy @coffees, items: params.fetch(:count, 10)
+    @pagy, @coffees = pagy @coffees, items: params.fetch(:count, 12)
   end
 
   def index_accessories
