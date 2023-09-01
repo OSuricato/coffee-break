@@ -4,7 +4,6 @@
 
 
 <%if @product.product_type == "Coffee" %>
-
   <div class="card-product" >
     <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="product-details">
@@ -21,6 +20,8 @@
   <%  unless current_user.nil? %>
     <% if current_user.is_company?  %>
       <p class="btn btn-primary"><%= link_to 'back to my products', root_path %></p>
+    <% elsif @product.is_promo%>
+      <p class="btn btn-primary"><%= link_to 'back to Promos', index_promo_products_path %></p>
     <% else %>
       <p class="btn btn-primary"><%= link_to 'back to Coffee', products_path %></p>
     <% end %>
@@ -45,10 +46,14 @@
   <% unless current_user.nil? %>
     <% if current_user.is_company?  %>
       <p class="btn btn-primary"><%= link_to 'back to my products', root_path %></p>
+    <% elsif @product.is_promo%>
+      <p class="btn btn-primary"><%= link_to 'back to Promos', index_promo_products_path %></p>
     <% else %>
-      <p class="btn btn-primary"><%= link_to 'back to Accessories', products_path %></p>
+      <p class="btn btn-primary"><%= link_to 'back to Accessories', index_accessories_products_path %></p>
     <% end %>
   <% else %>
-      <p class="btn btn-primary"><%= link_to 'back to Accessories', products_path %></p>
+      <p class="btn btn-primary"><%= link_to 'back to Accessories', index_accessories_products_path %></p>
   <% end %>
 <% end %>
+
+<%# index_promo_products %>
