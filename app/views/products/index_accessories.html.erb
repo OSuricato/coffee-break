@@ -6,15 +6,22 @@
 
   <% @accessories.each do |accessory| %>
     <div class="card-product">
-      <%= image_tag "accessory.jpg", class: "accessory_image" %>
-      <div class="accessory-info">
+      <% if accessory.photo.key? %>
+        <%= cl_image_tag accessory.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <%= image_tag "accessory.jpg", class: "accessory_image" %>
+      <% end %>
+      <div class="product-info">
         <h2><%= accessory.name %></h2>
         <p> US$ <%= accessory.price %>.00</p>
         <p>Product type: <%= accessory.product_type %></p>
-        <div class="details">
-          <%= link_to "View Details", product_path(accessory), class: "btn btn-primary" %>
-        </div>
+          <div class="details">
+            <%= link_to "View Details", product_path(accessory), class: "btn btn-primary" %>
+          </div>
       </div>
     </div>
   <% end %>
+</div>
+<div class="d-flex justify-content-center">
+    <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
 </div>

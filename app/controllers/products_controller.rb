@@ -9,10 +9,12 @@ class ProductsController < ApplicationController
 
   def index_accessories
     @accessories = Product.where.not(product_type: "Coffee")
+    @pagy, @accessories = pagy @accessories, items: params.fetch(:count, 12)
   end
 
   def index_promo
     @promos = Product.where(is_promo: true)
+    @pagy, @promos = pagy @promos, items: params.fetch(:count, 12)
   end
 
   def show
