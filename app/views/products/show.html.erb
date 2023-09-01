@@ -18,17 +18,15 @@
       <p><strong>Price: $ </strong> <%= @product.price %>
     </div>
   </div>
-  <%  unless current_user.nil? %>
-    <% if current_user.is_company?  %>
+
+    <% if current_user && current_user.is_company?  %>
       <p class="btn btn-primary"><%= link_to 'back to my products', root_path %></p>
     <% elsif @product.is_promo%>
       <p class="btn btn-primary"><%= link_to 'back to Promos', index_promo_products_path %></p>
     <% else %>
       <p class="btn btn-primary"><%= link_to 'back to Coffee', products_path %></p>
     <% end %>
-  <% else %>
-      <p class="btn btn-primary"><%= link_to 'back to Coffee', products_path %></p>
-  <% end %>
+
 <% else %>
 
   <div class="card-product" >
@@ -44,17 +42,15 @@
   </div>
 
 
-  <% unless current_user.nil? %>
-    <% if current_user.is_company?  %>
+
+     <% if current_user && current_user.is_company?  %>
       <p class="btn btn-primary"><%= link_to 'back to my products', root_path %></p>
     <% elsif @product.is_promo%>
       <p class="btn btn-primary"><%= link_to 'back to Promos', index_promo_products_path %></p>
     <% else %>
       <p class="btn btn-primary"><%= link_to 'back to Accessories', index_accessories_products_path %></p>
     <% end %>
-  <% else %>
-      <p class="btn btn-primary"><%= link_to 'back to Accessories', index_accessories_products_path %></p>
-  <% end %>
+
 <% end %>
 
 <%# index_promo_products %>
