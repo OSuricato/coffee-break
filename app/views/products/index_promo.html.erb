@@ -7,7 +7,7 @@
   <% @promos.each do |promo| %>
     <div class="card-product">
     <% if promo.photo.key? %>
-      <%= cl_image_tag coffee.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag promo.photo.key, height: 300, width: 400, crop: :fill %>
     <% elsif promo.product_type == "Coffee" %>
       <%= image_tag "placeholder.jpg", class: "product_image" %>
     <% else %>
