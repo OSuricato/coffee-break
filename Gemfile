@@ -86,4 +86,7 @@ gem 'pagy'
 
 gem "cloudinary"
 
-gem "stripe", "~> 9.1"
+gem "pay"
+
+# To use Stripe, also include:
+gem "stripe", "~> 9.1.0"

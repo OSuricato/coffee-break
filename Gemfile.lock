@@ -178,6 +178,8 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pagy (6.0.4)
+    pay (6.8.0)
+      rails (>= 6.0.0)
     pg (1.5.3)
     popper_js (2.11.8)
     public_suffix (5.0.3)
@@ -301,6 +303,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   pagy
+  pay
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
@@ -309,7 +312,7 @@ DEPENDENCIES
   simple_form!
   sprockets-rails
   stimulus-rails
-  stripe (~> 9.1)
+  stripe (~> 9.1.0)
   turbo-rails
   tzinfo-data
   web-console
