@@ -1,3 +1,8 @@
+
+// font-family: 'IBM Plex Sans', sans-serif;
+// font-family: 'Instrument Sans', sans-serif;
+// font-family: 'Racing Sans One', cursive;
+
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -24,4 +29,18 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+h1 {
+  font-family: 'Instrument Sans', sans-serif;
+}
+
+h2 {
+  font-family: 'Instrument Sans', sans-serif;
+}
+
+.h2-special {
+  font-family: 'Racing Sans One', cursive;
+  font-size: 50px;
 }

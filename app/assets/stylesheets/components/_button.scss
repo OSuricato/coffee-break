@@ -1,5 +1,5 @@
 .btn-primary {
-  width: 120px;
+  min-width: 120px;
   border-radius: 50px;
   a {
     color: black;
@@ -20,3 +20,7 @@
   display: flex;
   justify-content: center;
 }
+
+// .skinny-btn {
+//   min-width: 120px;
+// }
