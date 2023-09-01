@@ -85,3 +85,5 @@ gem 'cpf_faker'
 gem 'pagy'
 
 gem "cloudinary"
+
+gem "stripe", "~> 9.1"
